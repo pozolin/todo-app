@@ -1,16 +1,15 @@
+class Task():
+    _id_counter = 1
 
-class Task:
-    _id_counter = 1  # class variable to assign unique IDs
-
-    def __init__(self, title, done=False):
+    def __init__(self, title, priority="low"):
+        self.title = title
         self.id = Task._id_counter
         Task._id_counter += 1
-        self.title = title
-        self.status = 'not-completed'
+        self.status = "not_completed"
+        self.priority = priority
 
     def toggle(self):
-        """Mark the task as done/undone."""
-        self.status = 'completed' if self.status == 'not-completed' else 'not-completed'
-
-    def __repr__(self):
-        return f"<Task id={self.id} title='{self.title}' status={self.status}>"
+        if self.status == "not_completed":
+            self.status = "completed"
+        else:
+            self.status = "not_completed"

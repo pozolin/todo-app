@@ -68,3 +68,39 @@ body {
     color: #aaa;
   }
   
+  li.low {
+    background-color: green
+  }
+  
+  li.medium {
+    background-color: yellow
+  }
+
+  li.high {
+    background-color: red
+  }
+
+  .prio-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .prio {
+    width: 50px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .prio.low {
+    background-color: green;
+  }
+
+  .prio.med {
+    background-color: yellow;
+  }
+
+  .prio.high {
+    background-color: red;
+  }
