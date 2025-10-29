@@ -14,8 +14,8 @@ TASKS = []
 def todo():
     if request.method == 'POST':
         task = request.form['task-text']
-        task_priority = request.form['priority']
-        new_task = Task(title=task, user_id=current_user.id)
+        priority = request.form['priority']
+        new_task = Task(title=task, priority=priority, user_id=current_user.id)
         db.session.add(new_task)
         db.session.commit()
 

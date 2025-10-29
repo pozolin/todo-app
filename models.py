@@ -7,7 +7,7 @@ db = SQLAlchemy()
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(80), unique=True, nullable=False)
-    password_hash = db.Column(db.string(120), nullable=False)
+    password_hash = db.Column(db.String(120), nullable=False)
     tasks = db.relationship('Task', backref='user')
 
     def set_password(self, password):
@@ -25,12 +25,15 @@ class Task(db.Model):
     status = db.Column(db.String(20), default='not-completed')
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
+    PRIORITY_LEVELS = ['low', 'medium', 'high']
+
     def toggle(self):
         """Mark the task as done/undone."""
         self.status = 'completed' if self.status == 'not-completed' else 'not-completed'
 
-    def setPriority(self):
-        self.priority = 
+    def set_priority(self, priority):
+        if priority in self.PRIORITY_LEVELS:
+            self.priority = priority
 
     def __repr__(self):
         return f"<Task id={self.id} title='{self.title}' status={self.status}>"

@@ -1,5 +1,6 @@
 from flask import Flask
 from views import main_blueprint
+from auth import auth_blueprint
 from models import db, User
 from flask_login import LoginManager
 
