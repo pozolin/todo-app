@@ -13,3 +13,6 @@ class Task():
             self.status = "completed"
         else:
             self.status = "not_completed"
+
+    def __repr__(self):
+        return f"<Task id={self.id} title='{self.title}' status={self.status}>"
